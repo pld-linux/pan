@@ -58,7 +58,7 @@ mv -f po/{no,nb}.po
 
 %build
 rm -f missing
-%{__sed} -i 's,\(^ALL_LINGUAS=.*\)\(no\)\(.*\),\1nb\3,' configure.in
+%{__sed} -i 's,\(^ALL_LINGUAS=.*\)\(no\),\1nb,' configure.in
 %{__aclocal}
 %{__libtoolize}
 glib-gettextize -c -f
