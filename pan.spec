@@ -3,7 +3,7 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.11.3
+Version:	0.13.3
 Release:	1
 Epoch:		1
 License:	GPL
@@ -12,20 +12,12 @@ Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bison
-BuildRequires:	gal-devel >= 0.19
-BuildRequires:	gettext-devel
-BuildRequires:	gnome-libs-devel >= 1.0.16
-BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	gtkhtml-devel >= 0.16
 BuildRequires:	libtool
-BuildRequires:	libxml-devel >= 1.8.17
+BuildRequires:	bison
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	libxml2-devel >= 2.4.24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define		_sysconfdir	/etc/X11/GNOME
-%define		_localstatedir	/var
 
 %description
 PAN is Pimp Ass Newsreader. Its goal is to make a user-friendly and
@@ -53,17 +45,14 @@ salvando anexos e leitura "offline".
 %setup -q
 
 %build
-sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
-mv -f configure.in.tmp configure.in
 rm -f missing
 %{__libtoolize}
 %{__gettextize}
-%{__aclocal} -I macros
+%{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure \
-	--enable-html \
-	--with-gnome
+%configure
+
 %{__make}
 
 %install
@@ -71,7 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	Productivitydir=%{_applnkdir}/Network/News
-
 
 %find_lang %{name} --with-gnome
 
