@@ -25,7 +25,7 @@ BuildRequires:	aspell-devel
 BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel >= 2.0.1
-BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	gtk+2-devel >= 2:2.2.0
 %{?with_gtkspell:BuildRequires: gtkspell-devel >= 2.0.2}
 BuildRequires:	intltool
 BuildRequires:	libtool
