@@ -16,7 +16,7 @@ BuildRequires:	libtool
 BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.6
-BuildRequires:	gtkspell-devel
+#BuildRequires:	gtkspell-devel
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
