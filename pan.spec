@@ -3,13 +3,13 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.11.2.91
+Version:	0.11.3
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://pan.rebelbase.com/download/%{version}/SOURCE/%{name}-%{version}.tar.bz2
-URL:		http://www.superpimp.org/
+Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2	
+URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -40,7 +40,7 @@ offline newsreading. It is also the only Unix newsreader to receive a
 perfect score
 
 %description -l pl
-Celem programu PIM jest umo¿liwienie u¿ytkownikowi prostego i
+Celem programu PAN jest umo¿liwienie u¿ytkownikowi prostego i
 efektywnego czytania wiadomo¶ci USENET w ¶rodowisku GNOME. Interfejs
 u¿ytkownika jest podobny do tych znanych z Windows.
 
