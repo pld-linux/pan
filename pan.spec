@@ -1,7 +1,7 @@
 Summary:	A USENET newsreader for GNOME
 Name:		pan
 Version:	0.8.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
@@ -40,7 +40,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 make install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Productivitydir=%{_applnkdir}/Networking/News
+	Productivitydir=%{_applnkdir}/Network/News
 
 gzip -9nf README ChangeLog AUTHORS TODO CREDITS
 
@@ -53,5 +53,5 @@ rm -r $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Networking/News/*
+%{_applnkdir}/Network/News/*
 %{_datadir}/pixmaps/*
