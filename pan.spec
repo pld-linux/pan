@@ -1,10 +1,14 @@
+#
+# Conditional build:
+%bcond_without gtkspell # no spelling checker
+
 Summary:	A USENET newsreader for GNOME
 Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
 Version:	0.14.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
@@ -19,7 +23,7 @@ BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel >= 2.0.1
 BuildRequires:	gtk+2-devel >= 2.2.0
-BuildRequires:	gtkspell-devel >= 2.0.2
+%{?with_gtkspell:BuildRequires: gtkspell-devel >= 2.0.2}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,8 +61,7 @@ glib-gettextize -c -f
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure \
-	--enable-gtkspell
+%configure %{?with_gtkspell:--enable-gtkspell}
 
 %{__make}
 
