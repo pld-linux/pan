@@ -47,7 +47,7 @@ salvando anexos e leitura "offline".
 %build
 rm -f missing
 %{__libtoolize}
-%{__gettextize}
+glib-gettextize -c -f
 %{__aclocal}
 %{__autoconf}
 %{__automake}
