@@ -1,24 +1,25 @@
 Summary:	A USENET newsreader for GNOME
+Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
+Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.10.0.90
+Version:	0.11.0.91
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	http://pan.rebelbase.com/download/%{version}/SOURCES/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-use_AM_GNU_GETTEXT.patch
+Source0:	http://pan.rebelbase.com/download/%{version}/SOURCE/%{name}-%{version}.tar.bz2
 URL:		http://www.superpimp.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	gal-devel >= 0.11.2
+BuildRequires:	gal-devel >= 0.18.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	gtkhtml-devel >= 0.9.2
+BuildRequires:	gtkhtml-devel >= 0.16.0
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -33,17 +34,29 @@ powerful USENET newsreadre for GNOME. Its user interface is based
 loosely on popular newsreaders for Windows. This is alpha software, so
 don't expect everything to work correctly or even at all.
 
+%description -l es
+Pan is a powerful and easy newsreader for GNOME. It has many features
+for easy reading and posting, displaying and saving attachments, and
+offline newsreading. It is also the only Unix newsreader to receive a
+perfect score
+
 %description -l pl
 Celem programu PIM jest umo¿liwienie u¿ytkownikowi prostego i
 efektywnego czytania wiadomo¶ci USENET w ¶rodowisku GNOME. Interfejs
 u¿ytkownika jest podobny do tych znanych z Windows.
 
+%description -l pt_BR
+Pan é um leitor de Usenet News fácil e poderoso para o GNOME Ele tem
+muitas características que facilitam ler e postar, mostrando e
+salvando anexos e leitura "offline".
+
 %prep
 %setup -q
-%patch -p1
 
 %build
-rm missing
+sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
+mv -f configure.in.tmp configure.in
+rm -f missing
 libtoolize --copy --force
 gettextize --copy --force
 aclocal -I macros
