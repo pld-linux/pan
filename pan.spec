@@ -75,4 +75,4 @@ rm -r $RPM_BUILD_ROOT
 %doc README ChangeLog AUTHORS TODO CREDITS
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/News/*
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
