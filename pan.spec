@@ -8,7 +8,7 @@ Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2	
+Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -18,8 +18,8 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	gtkhtml-devel >= 0.16
-BuildRequires:  libxml-devel >= 1.8.17
 BuildRequires:	libtool
+BuildRequires:	libxml-devel >= 1.8.17
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
