@@ -1,27 +1,29 @@
---- pan-0.9.6/configure.in~	Mon Mar 26 08:55:51 2001
-+++ pan-0.9.6/configure.in	Thu Apr 19 04:14:09 2001
+diff -urN pan-0.9.7.org/Makefile.am pan-0.9.7/Makefile.am
+--- pan-0.9.7.org/Makefile.am	Sat Jun  9 17:05:48 2001
++++ pan-0.9.7/Makefile.am	Sat Jun  9 17:06:15 2001
+@@ -1,4 +1,4 @@
+-SUBDIRS = macros po gmime pan docs tests
++SUBDIRS = macros intl po gmime pan docs tests
+ 
+ EXTRA_DIST = CREDITS ChangeLog pan.desktop pan.spec pan-images.spec pan.png
+ 
+diff -urN pan-0.9.7.org/configure.in pan-0.9.7/configure.in
+--- pan-0.9.7.org/configure.in	Sat Jun  9 17:05:48 2001
++++ pan-0.9.7/configure.in	Sat Jun  9 17:06:34 2001
 @@ -22,7 +22,7 @@
  GNOME_COMPILE_WARNINGS
  
- ALL_LINGUAS="ca da de en_GB es fi fr ga gl it ja ko lt no nl pl pt_BR ru sl sp sr sv tr uk"
+ ALL_LINGUAS="ca da de en_GB es fi fr ga gl hu it ja ko lt no nl pl pt_BR ru sl sp sr sv tr uk"
 -AM_GNOME_GETTEXT
 +AM_GNU_GETTEXT
  
  
  dnl ***
-@@ -192,6 +192,7 @@
- Makefile
+@@ -193,6 +193,7 @@
  pan.spec
+ pan-images.spec
  macros/Makefile
 +intl/Makefile
  po/Makefile.in
  pan/Makefile
  pan/dialogs/Makefile
---- pan-0.9.6/Makefile.am~	Sat Dec 23 09:44:33 2000
-+++ pan-0.9.6/Makefile.am	Thu Apr 19 04:34:05 2001
-@@ -1,4 +1,4 @@
--SUBDIRS = macros po gmime pan docs
-+SUBDIRS = macros intl po gmime pan docs
- 
- EXTRA_DIST = CREDITS ChangeLog pan.desktop pan.spec pan.png
- 
