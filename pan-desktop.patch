@@ -1,0 +1,8 @@
+diff -ur pan-0.14.0.90/pan.desktop pan-0.14.0.90-desktop/pan.desktop
+--- pan-0.14.0.90/pan.desktop	2003-07-07 06:27:44.000000000 +0200
++++ pan-0.14.0.90-desktop/pan.desktop	2003-07-12 15:23:52.000000000 +0200
+@@ -48,3 +48,4 @@
+ Icon=pan.png
+ Terminal=0
+ Type=Application
++Categories=GNOME;Application;Network;X-News;
