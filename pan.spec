@@ -17,9 +17,9 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	bison
 BuildRequires:	gettext-devel
+BuildRequires:	gnet-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	libxml2-devel >= 2.4.24
-BuildRequires:	gnet-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
