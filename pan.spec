@@ -2,7 +2,7 @@ Summary:	A USENET newsreader for GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Name:		pan
 Version:	0.9.6
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	gtkhtml-devel >= 0.8.3
+BuildRequires:	gtkhtml-devel >= 0.9.2
 BuildRequires:	libtool
 BuildRequires:	bison
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
