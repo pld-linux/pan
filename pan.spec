@@ -15,11 +15,11 @@ URL:		http://www.superpimp.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	gal-devel >= 0.18.0
+BuildRequires:	gal-devel >= 0.18
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	gtkhtml-devel >= 0.16.0
+BuildRequires:	gtkhtml-devel >= 0.16
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
