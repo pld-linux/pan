@@ -6,6 +6,6 @@ diff -urN aaa/pan-0.14.0.93/pan.desktop.in pan-0.14.0.93/pan.desktop.in
 -Terminal=0
 +Terminal=false
  Type=Application
-+Categories=GNOME;Application;Network;X-News;
++Categories=GNOME;Application;Network;News;
 +Encoding=UTF-8
 +# vi: encoding=utf-8
