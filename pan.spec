@@ -1,20 +1,20 @@
 Summary:	A USENET newsreader for GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Name:		pan
-Version:	0.10.0
+Version:	0.10.0.90
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	http://pan.rebelbase.com/download/%{version}/%{name}-%{version}.tar.bz2
+Source0:	http://pan.rebelbase.com/download/%{version}/SOURCES/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-use_AM_GNU_GETTEXT.patch
 URL:		http://www.superpimp.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	gal-devel >= 0.9
+BuildRequires:	gal-devel >= 0.11.2
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
