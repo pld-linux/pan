@@ -1,17 +1,15 @@
 Summary:	A USENET newsreader for GNOME
 Name:		pan
-Version:	0.8.0
-Release:	2
+Version:	0.9.1
+Release:	1
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
-Source0:	ftp://source.rebelbase.com/pub/pan/%{version}/%{name}-%{version}.tar.bz2
-Patch0:		pan-automake_fix.patch
+Source0:	http://download.superpimp.org/pan/%{version}/%{name}-%{version}.tar.bz2
 URL:		http://www.superpimp.org/
-BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gettext-devel
-BuildRequires:	automake
+BuildRequires:	gnome-libs-devel >= 1.0.16
+BuildRequires:	gtk+-devel >= 1.2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -27,12 +25,9 @@ don't expect everything to work correctly or even at all.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
-automake
 gettextize --copy --force
-LDFLAGS="-s";export LDFLAGS
 %configure
 %{__make}
 
