@@ -3,21 +3,22 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.14.0.96
+Version:	0.14.1
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2
-# Source0-md5:	352ad0d01b2e4940c2b7e8a844c6fc78
+# Source0-md5:	520857b65403ee8639c2c0c64b0e1db1
 Patch0:		%{name}-desktop.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	gnet-devel >= 2.0.0
-BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	gnet-devel >= 2.0.1
+BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	gtkspell-devel >= 2.0.2
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,12 +56,14 @@ glib-gettextize -c -f
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--enable-gtkspell
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	Productivitydir=%{_desktopdir}
