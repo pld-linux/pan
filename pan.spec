@@ -3,7 +3,7 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.13.3
+Version:	0.14.0
 Release:	1
 Epoch:		1
 License:	GPL
@@ -17,6 +17,8 @@ BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	gnet-devel >= 1.1.5
+BuildRequires:	gnet-devel < 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
