@@ -61,7 +61,8 @@ glib-gettextize -c -f
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure %{?with_gtkspell:--enable-gtkspell}
+%configure \
+	--%{?with_gtkspell:enable}%{!?with_gtkspell:disable}-gtkspell
 
 %{__make}
 
