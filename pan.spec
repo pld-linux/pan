@@ -3,7 +3,7 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.12.90
+Version:	0.13.0
 Release:	1
 Epoch:		1
 License:	GPL
@@ -15,9 +15,9 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.0.5
+BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	gtkspell-devel
-BuildRequires:	libxml2-devel >= 2.4.22
+BuildRequires:	libxml2-devel >= 2.4.24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -55,8 +55,8 @@ salvando anexos e leitura "offline".
 #aclocal
 #%{__autoconf}
 #%{__automake}
-%configure \
-	--enable-gtkspell
+%configure
+#	--enable-gtkspell
 %{__make}
 
 %install
