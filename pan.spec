@@ -1,6 +1,7 @@
 Summary:	A USENET newsreader for GNOME
+Summary(pl):	Czytnik USENET dla GNOME
 Name:		pan
-Version:	0.9.2
+Version:	0.9.3
 Release:	1
 License:	GPL
 Group:		X11/GNOME
@@ -10,6 +11,7 @@ URL:		http://www.superpimp.org/
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
+BuildRequires:	gtkhtml-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -23,12 +25,19 @@ powerful USENET newsreadre for GNOME. Its user interface is based
 loosely on popular newsreaders for Windows. This is alpha software, so
 don't expect everything to work correctly or even at all.
 
+%description -l pl
+Celem programu PIM jest umo¿liwienie u¿ytkownikowi prostego i efektywnego
+czytania wiadomo¶ci USENET w ¶rodowisku GNOME. Interfejs u¿ytkownika jest
+podobny do tych znanych z Windows.
+
 %prep
 %setup -q
 
 %build
 gettextize --copy --force
-%configure
+%configure \
+	--enable-html \
+	--with-gnome
 %{__make}
 
 %install
