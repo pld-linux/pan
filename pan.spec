@@ -5,11 +5,12 @@ Release:	1
 License:	GPL
 Group:		X11/GNOME
 URL:		http://www.superpimp.org/
-Source:		ftp://source.rebelbase.com/pub/pan/%{name}-%{version}.tar.gz
-Patch:		%{name}-applnk.patch
+Source0:	ftp://source.rebelbase.com/pub/pan/%{name}-%{version}.tar.gz
+Patch0:		%{name}-applnk.patch
+BuildRequires:	gtk+-devel >= 1.2.6
+BuildRequires:	gnome-libs-devel >= 1.0.16
+BuildRequires:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
-Requires:	gtk+ >= 1.2.6
-Requires:	gnome-libs >= 1.0.16
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -18,11 +19,10 @@ Requires:	gnome-libs >= 1.0.16
 %define		_applnkdir	%{_datadir}/applnk
 
 %description
-This is version %{version} of PAN, the Pimp Ass Newsreader.  Its goal is to
-make a user-friendly and powerful USENET newsreadre for GNOME.  Its user
-interface is based loosely on popular newsreaders for Windows.  This is
-alpha software, so don't expect everything to work correctly or even at
-all.
+PAN is Pimp Ass Newsreader. Its goal is to make a user-friendly and powerful
+USENET newsreadre for GNOME. Its user interface is based loosely on popular
+newsreaders for Windows. This is alpha software, so don't expect everything
+to work correctly or even at all.
 
 %prep
 %setup -q
@@ -37,13 +37,13 @@ make
 rm -rf $RPM_BUILD_ROOT
 make DESTDIR=$RPM_BUILD_ROOT install
 
-gzip -9nf README ChangeLog AUTHORS TODO COPYING CREDITS
+gzip -9nf README ChangeLog AUTHORS TODO CREDITS
 
 %find_lang %{name}
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc {README,ChangeLog,AUTHORS,TODO,COPYING,CREDITS}.gz
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Networking/News/*
 
