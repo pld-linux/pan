@@ -27,8 +27,10 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel >= 2.0.1
 BuildRequires:	gtk+2-devel >= 2.2.0
 %{?with_gtkspell:BuildRequires: gtkspell-devel >= 2.0.2}
+BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
