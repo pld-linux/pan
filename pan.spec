@@ -11,7 +11,6 @@ Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://pan.rebelbase.com/download/%{version}/SOURCE/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-ac_fix.patch
 URL:		http://www.superpimp.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -53,7 +52,6 @@ salvando anexos e leitura "offline".
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
