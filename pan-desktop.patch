@@ -3,7 +3,8 @@ diff -urN aaa/pan-0.14.0.93/pan.desktop.in pan-0.14.0.93/pan.desktop.in
 +++ pan-0.14.0.93/pan.desktop.in	2003-08-03 18:05:18.000000000 +0200
 @@ -5,3 +5,5 @@
  Icon=pan.png
- Terminal=false
+-Terminal=0
++Terminal=false
  Type=Application
 +Categories=GNOME;Application;Network;X-News;
 +Encoding=UTF-8
