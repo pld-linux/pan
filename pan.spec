@@ -3,8 +3,8 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.11.0.92
-Release:	2
+Version:	0.11.2.91
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -18,6 +18,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	gtkhtml-devel >= 0.16
+BuildRequires:  libxml-devel >= 1.8.17
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
