@@ -10,13 +10,12 @@ Patch0:		%{name}-applnk.patch
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	XFree86-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME
 %define		_localstatedir	/var
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 PAN is Pimp Ass Newsreader. Its goal is to make a user-friendly and powerful
