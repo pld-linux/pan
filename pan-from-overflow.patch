@@ -1,0 +1,27 @@
+Based on fix from CVS (1.33->1.34), but always NUL-terminate addr_buf.
+
+--- pan-0.11.4/pan/base/gnksa.c.orig	Tue Apr 16 02:36:06 2002
++++ pan-0.11.4/pan/base/gnksa.c	Tue Feb  3 13:09:33 2004
+@@ -463,7 +463,7 @@
+ 		  gint         * addrtype,
+ 		  gboolean       strict)
+ {
+-	gchar * begin;
++	gchar * begin, * addr_buf_rangle;
+ 	gchar * end;
+ 	gchar * work;
+ 	gchar * lparen;
+@@ -492,8 +492,11 @@
+ 			return GNKSA_LANGLE_MISSING;
+ 
+ 		/* copy route address from inside the <> brackets */
+-		strncpy (addr_buf, begin+1, addr_max);
+-		*strchr(addr_buf, '>') = '\0';
++		strncpy (addr_buf, begin+1, addr_max - 1);
++		addr_buf[addr_max - 1] = '\0';
++		
++		if((addr_buf_rangle = strchr(addr_buf, '>')) != NULL)
++			*addr_buf_rangle = '\0';
+ 
+ 		/* From: [plain-phrase space] "<" address ">" */
+ 		*begin = '\0';
