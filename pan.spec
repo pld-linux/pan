@@ -3,14 +3,15 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.14.0
-Release:	2
+Version:	0.14.0.90
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2
-# Source0-md5:	b2702adadb84c2e0d52d2bb029c05206
+# Source0-md5:	59612bf2551650c0060b214f9742a105
 Patch0:		%{name}-new-gnet.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -24,7 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 PAN is Pimp Ass Newsreader. Its goal is to make a user-friendly and
-powerful USENET newsreadre for GNOME. Its user interface is based
+powerful USENET newsreader for GNOME. Its user interface is based
 loosely on popular newsreaders for Windows. This is alpha software, so
 don't expect everything to work correctly or even at all.
 
@@ -46,7 +47,8 @@ salvando anexos e leitura "offline".
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -63,7 +65,7 @@ glib-gettextize -c -f
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Productivitydir=%{_applnkdir}/Network/News
+	Productivitydir=%{_desktopdir}
 
 %find_lang %{name} --with-gnome
 
@@ -74,5 +76,5 @@ rm -r $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog AUTHORS TODO CREDITS
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Network/News/*
-%{_pixmapsdir}/*
+%{_desktopdir}/{name}.desktop
+%{_pixmapsdir}/{name}.png
