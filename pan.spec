@@ -15,11 +15,11 @@ Patch1:		%{name}-desktop.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name} --with-gnome
 
 %clean
-rm -r $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
