@@ -3,23 +3,28 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.11.3
+Version:	0.11.4
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2
+# Source0-md5:	22993c47af617086b34211f707a84ace
+Patch0:		%{name}-from-overflow.patch
 URL:		http://pan.rebelbase.com/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	gal-devel >= 0.19
+BuildRequires:	gdk-pixbuf-devel >= 0.10.1
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
-BuildRequires:	gtk+-devel >= 1.2.6
-BuildRequires:	gtkhtml-devel >= 0.16
+BuildRequires:	gtk+-devel >= 1.2.10
 BuildRequires:	libtool
 BuildRequires:	libxml-devel >= 1.8.17
+Requires:	gdk-pixbuf >= 0.10.1
+Requires:	gnome-libs >= 1.0.16
+Requires:	gtk+ >= 1.2.10
+Requires:	libxml >= 1.8.17
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -33,12 +38,6 @@ powerful USENET newsreadre for GNOME. Its user interface is based
 loosely on popular newsreaders for Windows. This is alpha software, so
 don't expect everything to work correctly or even at all.
 
-%description -l es
-Pan is a powerful and easy newsreader for GNOME. It has many features
-for easy reading and posting, displaying and saving attachments, and
-offline newsreading. It is also the only Unix newsreader to receive a
-perfect score
-
 %description -l pl
 Celem programu PAN jest umo¿liwienie u¿ytkownikowi prostego i
 efektywnego czytania wiadomo¶ci USENET w ¶rodowisku GNOME. Interfejs
@@ -51,16 +50,17 @@ salvando anexos e leitura "offline".
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
+sed -e 's/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/' configure.in | \
+	grep -v '^ *po/Makefile\.in$' > configure.in.tmp
 mv -f configure.in.tmp configure.in
-rm -f missing
-libtoolize --copy --force
-gettextize --copy --force
-aclocal -I macros
-autoconf
-automake -a -c -f
+%{__libtoolize}
+%{__gettextize}
+%{__aclocal} -I macros
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-html \
 	--with-gnome
@@ -68,11 +68,10 @@ automake -a -c -f
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	Productivitydir=%{_applnkdir}/Network/News
-
-gzip -9nf README ChangeLog AUTHORS TODO CREDITS
 
 %find_lang %{name} --with-gnome
 
@@ -81,7 +80,7 @@ rm -r $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS CREDITS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/News/*
 %{_pixmapsdir}/*
