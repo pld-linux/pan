@@ -72,7 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Productivitydir=%{_applnkdir}/Network/News
 
-gzip -9nf README ChangeLog AUTHORS TODO CREDITS
 
 %find_lang %{name} --with-gnome
 
@@ -81,7 +80,7 @@ rm -r $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog AUTHORS TODO CREDITS
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/News/*
 %{_pixmapsdir}/*
