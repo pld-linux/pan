@@ -59,7 +59,7 @@ mv -f configure.in.tmp configure.in
 rm -f missing
 libtoolize --copy --force
 gettextize --copy --force
-aclocal
+aclocal -I macros
 autoconf
 automake -a -c
 %configure \
