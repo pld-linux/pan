@@ -3,13 +3,13 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.14.0.93
-Release:	2
+Version:	0.14.0.94
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2
-# Source0-md5:	e1f99e73a3aaed4eb36d07d98c8412fc
+# Source0-md5:	ab89c337456ceb08ce01bc05219840ad
 Patch0:		%{name}-desktop.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
