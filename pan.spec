@@ -9,7 +9,6 @@ Source0:	ftp://source.rebelbase.com/pub/pan/%{name}-%{version}.tar.gz
 Patch0:		%{name}-applnk.patch
 BuildRequires:	gtk+-devel >= 1.2.6
 BuildRequires:	gnome-libs-devel >= 1.0.16
-BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
