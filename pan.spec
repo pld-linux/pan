@@ -76,5 +76,5 @@ rm -r $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog AUTHORS TODO CREDITS
 %attr(755,root,root) %{_bindir}/*
-%{_desktopdir}/{name}.desktop
-%{_pixmapsdir}/{name}.png
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
