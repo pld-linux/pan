@@ -38,7 +38,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	Productivitydir=%{_applnkdir}/Network/News
 
