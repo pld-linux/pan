@@ -36,12 +36,6 @@ powerful USENET newsreader for GNOME. Its user interface is based
 loosely on popular newsreaders for Windows. This is alpha software, so
 don't expect everything to work correctly or even at all.
 
-%description -l es
-Pan is a powerful and easy newsreader for GNOME. It has many features
-for easy reading and posting, displaying and saving attachments, and
-offline newsreading. It is also the only Unix newsreader to receive a
-perfect score
-
 %description -l pl
 Celem programu PAN jest umo¿liwienie u¿ytkownikowi prostego i
 efektywnego czytania wiadomo¶ci USENET w ¶rodowisku GNOME. Interfejs
