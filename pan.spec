@@ -3,19 +3,20 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.11.0.92
-Release:	1
+Version:	0.11.1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://pan.rebelbase.com/download/%{version}/SOURCE/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-ac_fix.patch
 URL:		http://www.superpimp.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	gal-devel >= 0.18
+BuildRequires:	gal-devel >= 0.19
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.0.16
 BuildRequires:	gtk+-devel >= 1.2.6
@@ -52,6 +53,7 @@ salvando anexos e leitura "offline".
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
@@ -59,7 +61,7 @@ mv -f configure.in.tmp configure.in
 rm -f missing
 libtoolize --copy --force
 gettextize --copy --force
-aclocal -I macros
+aclocal
 autoconf
 automake -a -c
 %configure \
