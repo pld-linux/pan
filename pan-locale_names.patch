@@ -1,0 +1,11 @@
+--- pan-0.14.2/configure.in~	Fri Jul 23 12:53:57 2004
++++ pan-0.14.2/configure.in	Fri Jul 23 12:53:57 2004
+@@ -31,7 +31,7 @@
+ AC_PROG_RANLIB
+ 
+ dnl i18n
+-ALL_LINGUAS="am ca cs da de el en_GB es et fi fr ga gl hu it ja ko lt lv nl no pl pt pt_BR ru sk sl sr sr@Latn sv tr uk vi zh_CN"
++ALL_LINGUAS="am ca cs da de el en_GB es et fi fr ga gl hu it ja ko lt lv nb nl pl pt pt_BR ru sk sl sr sr@Latn sv tr uk vi zh_CN"
+ GETTEXT_PACKAGE=pan
+ AC_SUBST(GETTEXT_PACKAGE)
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[Useful for glib-gettextize])
