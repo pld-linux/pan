@@ -1,7 +1,7 @@
 Summary:	A USENET newsreader for GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Name:		pan
-Version:	0.9.4
+Version:	0.9.5
 Release:	1
 License:	GPL
 Group:		X11/GNOME
