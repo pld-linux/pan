@@ -52,9 +52,9 @@ diff -Nur pan-0.14.0.orig/pan/smtp.c pan-0.14.0.chng/pan/smtp.c
  
  	status_item_emit_status (item, _("Handshaking with mail server"));
  
-diff -Nur pan-0.14.0.orig/pan/sockets.c pan-0.14.0.chng/pan/sockets.c
---- pan-0.14.0.orig/pan/sockets.c	Tue Apr  8 22:13:33 2003
-+++ pan-0.14.0.chng/pan/sockets.c	Tue Jun 24 14:44:59 2003
+diff -Nur pan-0.14.0.90/pan/sockets.c pan-0.14.0.90-patch/pan/sockets.c
+--- pan-0.14.0.90/pan/sockets.c	2003-07-02 07:02:18.000000000 +0200
++++ pan-0.14.0.90-patch/pan/sockets.c	2003-07-12 14:47:16.000000000 +0200
 @@ -30,7 +30,7 @@
  #include <time.h> /* for time_t */
  
@@ -64,12 +64,12 @@ diff -Nur pan-0.14.0.orig/pan/sockets.c pan-0.14.0.chng/pan/sockets.c
  
  #include <pan/base/debug.h>
  #include <pan/base/log.h>
-@@ -139,7 +139,7 @@
- 	if (sock->gnet_socket==NULL)
- 		log_add_va (LOG_ERROR, _("Connection to %s, port %d failed: %s"), server_address, port, g_strerror(errno));
- 	else {
+@@ -154,7 +154,7 @@
+ 	}
+ 	else
+ 	{
 -		sock->gio_channel = gnet_tcp_socket_get_iochannel (sock->gnet_socket);
 +		sock->gio_channel = gnet_tcp_socket_get_io_channel (sock->gnet_socket);
  		if (g_io_channel_get_encoding (sock->gio_channel) != NULL)
  			g_io_channel_set_encoding (sock->gio_channel, NULL, NULL);
- 		g_io_channel_set_buffered (sock->gio_channel, TRUE);
+ 		g_io_channel_set_flags (sock->gio_channel, G_IO_FLAG_NONBLOCK, NULL);
