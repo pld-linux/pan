@@ -8,8 +8,6 @@ Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(pl):	X11/Aplikacje
 Source0:	http://pan.rebelbase.com/download/%{version}/SOURCE/%{name}-%{version}.tar.bz2
 URL:		http://www.superpimp.org/
 BuildRequires:	autoconf
