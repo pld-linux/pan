@@ -3,17 +3,18 @@ Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.14.1
+Version:	0.14.2
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2
-# Source0-md5:	520857b65403ee8639c2c0c64b0e1db1
+# Source0-md5:	ed3188e7059bb6d6c209ee5d46ac1852
 Patch0:		%{name}-desktop.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	aspell-devel
 BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gnet-devel >= 2.0.1
