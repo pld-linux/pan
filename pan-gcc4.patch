@@ -1,0 +1,24 @@
+diff -urN pan-0.14.2.91/pan/base/msort.c pan-0.14.2.91.new/pan/base/msort.c
+--- pan-0.14.2.91/pan/base/msort.c	2001-06-18 20:33:38.000000000 +0200
++++ pan-0.14.2.91.new/pan/base/msort.c	2006-03-29 18:11:19.000000000 +0200
+@@ -65,14 +65,16 @@
+ 			if ((*cmp) (b1, b2) <= 0)
+ 			{
+ 				--n1;
+-				*((unsigned long int *) tmp)++ =
+-					*((unsigned long int *) b1)++;
++				*((unsigned long int *) tmp) = *((unsigned long int *) b1);
++				tmp += sizeof(unsigned long int);
++				b1 += sizeof(unsigned long int);
+ 			}
+ 			else
+ 			{
+ 				--n2;
+-				*((unsigned long int *) tmp)++ =
+-					*((unsigned long int *) b2)++;
++				*((unsigned long int *) tmp) = *((unsigned long int *) b2);
++				tmp += sizeof(unsigned long int);
++				b2 += sizeof(unsigned long int);
+ 			}
+ 		}
+ 	else
