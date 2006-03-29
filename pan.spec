@@ -1,14 +1,14 @@
 #
 # Conditional build:
 %bcond_without	gtkspell	# no spelling checker
-
+#
 Summary:	A USENET newsreader for GNOME
 Summary(es):	Uno leitor USENET para el GNOME
 Summary(pl):	Czytnik USENET dla GNOME
 Summary(pt_BR):	Um leitor USENET para o GNOME
 Name:		pan
 Version:	0.14.2.91
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications
@@ -16,6 +16,7 @@ Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{
 # Source0-md5:	4770d899a1c1ba968ce96bc5aeb07b62
 Patch0:		%{name}-po.patch
 Patch1:		%{name}-intltool.patch
+Patch2:		%{name}-gcc4.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -53,6 +54,7 @@ salvando anexos e leitura "offline".
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 mv -f po/{no,nb}.po
 
