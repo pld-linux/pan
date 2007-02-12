@@ -1,7 +1,7 @@
 Summary:	A USENET newsreader for GNOME
-Summary(es):	Uno leitor USENET para el GNOME
-Summary(pl):	Czytnik USENET dla GNOME
-Summary(pt_BR):	Um leitor USENET para o GNOME
+Summary(es.UTF-8):   Uno leitor USENET para el GNOME
+Summary(pl.UTF-8):   Czytnik USENET dla GNOME
+Summary(pt_BR.UTF-8):   Um leitor USENET para o GNOME
 Name:		pan
 Version:	0.13.0
 Release:	1
@@ -29,20 +29,20 @@ powerful USENET newsreadre for GNOME. Its user interface is based
 loosely on popular newsreaders for Windows. This is alpha software, so
 don't expect everything to work correctly or even at all.
 
-%description -l es
+%description -l es.UTF-8
 Pan is a powerful and easy newsreader for GNOME. It has many features
 for easy reading and posting, displaying and saving attachments, and
 offline newsreading. It is also the only Unix newsreader to receive a
 perfect score
 
-%description -l pl
-Celem programu PAN jest umoøliwienie uøytkownikowi prostego i
-efektywnego czytania wiadomo∂ci USENET w ∂rodowisku GNOME. Interfejs
-uøytkownika jest podobny do tych znanych z Windows.
+%description -l pl.UTF-8
+Celem programu PAN jest umo≈ºliwienie u≈ºytkownikowi prostego i
+efektywnego czytania wiadomo≈õci USENET w ≈õrodowisku GNOME. Interfejs
+u≈ºytkownika jest podobny do tych znanych z Windows.
 
-%description -l pt_BR
-Pan È um leitor de Usenet News f·cil e poderoso para o GNOME Ele tem
-muitas caracterÌsticas que facilitam ler e postar, mostrando e
+%description -l pt_BR.UTF-8
+Pan √© um leitor de Usenet News f√°cil e poderoso para o GNOME Ele tem
+muitas caracter√≠sticas que facilitam ler e postar, mostrando e
 salvando anexos e leitura "offline".
 
 %prep
