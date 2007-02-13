@@ -3,9 +3,9 @@
 %bcond_without	gtkspell	# no spelling checker
 #
 Summary:	A USENET newsreader for GNOME
-Summary(es.UTF-8):   Uno leitor USENET para el GNOME
-Summary(pl.UTF-8):   Czytnik USENET dla GNOME
-Summary(pt_BR.UTF-8):   Um leitor USENET para o GNOME
+Summary(es.UTF-8):	Uno leitor USENET para el GNOME
+Summary(pl.UTF-8):	Czytnik USENET dla GNOME
+Summary(pt_BR.UTF-8):	Um leitor USENET para o GNOME
 Name:		pan
 Version:	0.14.2.91
 Release:	2
