@@ -1,0 +1,17 @@
+diff -urN pan-0.132/pan.desktop.in pan-0.132.new/pan.desktop.in
+--- pan-0.132/pan.desktop.in	2007-08-01 19:00:05.000000000 +0200
++++ pan-0.132.new/pan.desktop.in	2008-07-28 13:48:46.000000000 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ _Name=Pan Newsreader
+ _Comment=Read News from Usenet
+ Exec=pan 
+-Icon=pan.png
++Icon=pan
+ Terminal=false
+ Type=Application
+-Categories=GTK;Application;Network;News
++Categories=GTK;Network;News;
+ StartupNotify=false
++# vi: encoding=utf-8
