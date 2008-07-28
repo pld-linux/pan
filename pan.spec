@@ -7,31 +7,30 @@ Summary(es.UTF-8):	Uno leitor USENET para el GNOME
 Summary(pl.UTF-8):	Czytnik USENET dla GNOME
 Summary(pt_BR.UTF-8):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.14.2.91
-Release:	4
+Version:	0.132
+Release:	1
 Epoch:		1
 License:	GPL v2
-Group:		X11/Applications
-Source0:	http://pan.rebelbase.com/download/releases/%{version}/SOURCE/%{name}-%{version}.tar.bz2
-# Source0-md5:	4770d899a1c1ba968ce96bc5aeb07b62
-Patch0:		%{name}-po.patch
-Patch1:		%{name}-intltool.patch
-Patch2:		%{name}-gcc4.patch
+Group:		X11/Applications/Networking
+Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
+# Source0-md5:	2c337dbd5105b7772a4326d549a45638
+Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-locale_names.patch
+Patch2:		%{name}-gcc43.patch
+Patch3:		%{name}-glib-compat.patch
+Patch4:		%{name}-CVE-2008-2363.patch
 URL:		http://pan.rebelbase.com/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
-BuildRequires:	aspell-devel
-BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	gnet-devel >= 2.0.4
-BuildRequires:	gtk+2-devel >= 2:2.2.0
-%{?with_gtkspell:BuildRequires: gtkspell-devel >= 2.0.2}
-BuildRequires:	intltool
-BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.4.24
-BuildRequires:	pcre-devel >= 4.0
+BuildRequires:	gmime-devel >= 2.2.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+%{?with_gtkspell:BuildRequires:	gtkspell-devel >= 2.0.7}
+BuildRequires:	intltool >= 0.23
+BuildRequires:	pcre-devel >= 5.0
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,41 +54,36 @@ salvando anexos e leitura "offline".
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
-mv -f po/{no,nb}.po
+mv -f po/sr@{Latn,latin}.po
 
 %build
-rm -f missing
-%{__sed} -i 's,\(^ALL_LINGUAS=.*\)\(no\),\1nb,' configure.in
+%{__intltoolize}
 %{__aclocal}
-%{__libtoolize}
-glib-gettextize -c -f
-intltoolize -c -f
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
-	--%{?with_gtkspell:enable}%{!?with_gtkspell:disable}-gtkspell
+	--with%{!?with_gtkspell:out}-gtkspell
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-echo "Categories=GTK;Network;News;" >> pan.desktop
-echo "# vi: encoding=utf-8" >> pan.desktop
-
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Productivitydir=%{_desktopdir}
+	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-gnome
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ANNOUNCE.html AUTHORS ChangeLog CREDITS NEWS README TODO docs/*.html
-%attr(755,root,root) %{_bindir}/*
-%{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{name}.png
+%doc AUTHORS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/pan
+%{_desktopdir}/pan.desktop
+%{_pixmapsdir}/pan.png
