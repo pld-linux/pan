@@ -7,18 +7,14 @@ Summary(es.UTF-8):	Uno leitor USENET para el GNOME
 Summary(pl.UTF-8):	Czytnik USENET dla GNOME
 Summary(pt_BR.UTF-8):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.132
+Version:	0.133
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
-# Source0-md5:	2c337dbd5105b7772a4326d549a45638
+# Source0-md5:	ca165da8557605d89d327cff78891b89
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-locale_names.patch
-Patch2:		%{name}-gcc43.patch
-Patch3:		%{name}-glib-compat.patch
-Patch4:		%{name}-CVE-2008-2363.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -29,6 +25,7 @@ BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool >= 0.23
 BuildRequires:	pcre-devel >= 5.0
 BuildRequires:	pkgconfig
+BuildRequires:	sed >= 4.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -52,11 +49,8 @@ salvando anexos e leitura "offline".
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
 mv -f po/sr@{Latn,latin}.po
 
 %build
