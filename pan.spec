@@ -19,7 +19,7 @@ URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gmime-devel >= 2.2.0
+BuildRequires:	gmime22-devel >= 2.2.0
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 %{?with_gtkspell:BuildRequires:	gtkspell-devel >= 2.0.7}
 BuildRequires:	intltool >= 0.23
