@@ -54,7 +54,16 @@ sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
 mv -f po/sr@{Latn,latin}.po
 
 %build
+<<<<<<< pan.spec
+rm -f missing
+%{__sed} -i 's,\(^ALL_LINGUAS=.*\)\(no\),\1nb,' configure.in
+%{__intltoolize} --automake
+%{__gettextize}
+#%%{__glib_gettextize}
+%{__libtoolize}
+=======
 %{__intltoolize}
+>>>>>>> 1.84
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
