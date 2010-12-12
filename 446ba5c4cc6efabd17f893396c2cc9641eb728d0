@@ -1,0 +1,5 @@
+- updated to 0.8.0,
+- removed applnk patch,
+- added automake_fix with fix passing compile options in CVLSGs in uulib,
+- spec adapterized,
+- added %{_datadir}/pixmaps/* to %files.
