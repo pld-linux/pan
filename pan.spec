@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	gtkspell	# no spelling checker
-#
+
 Summary:	A USENET newsreader for GNOME
 Summary(es.UTF-8):	Uno leitor USENET para el GNOME
 Summary(pl.UTF-8):	Czytnik USENET dla GNOME
@@ -11,7 +11,7 @@ Version:	0.133
 Release:	1
 Epoch:		1
 License:	GPL v2
-Group:		X11/Applications/Networking
+Group:		Applications/News
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
 # Source0-md5:	ca165da8557605d89d327cff78891b89
 Patch0:		%{name}-desktop.patch
