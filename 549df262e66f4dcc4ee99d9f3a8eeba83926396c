@@ -1,0 +1,1 @@
+- BuildRequires: bison; rebuild in new gnome-print environment; release 3
