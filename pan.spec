@@ -8,13 +8,14 @@ Summary(pl.UTF-8):	Czytnik USENET dla GNOME
 Summary(pt_BR.UTF-8):	Um leitor USENET para o GNOME
 Name:		pan
 Version:	0.133
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/News
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
 # Source0-md5:	ca165da8557605d89d327cff78891b89
 Patch0:		%{name}-desktop.patch
+Patch1:		gcc44.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -49,6 +50,7 @@ salvando anexos e leitura "offline".
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
 mv -f po/sr@{Latn,latin}.po
