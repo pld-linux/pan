@@ -8,7 +8,7 @@ Summary(pl.UTF-8):	Czytnik USENET dla GNOME
 Summary(pt_BR.UTF-8):	Um leitor USENET para o GNOME
 Name:		pan
 Version:	0.133
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2
 Group:		Applications/News
