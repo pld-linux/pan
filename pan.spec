@@ -1,4 +1,6 @@
 #
+# TODO: consider gtk3 version
+#
 # Conditional build:
 %bcond_without	gtkspell	# no spelling checker
 
@@ -7,24 +9,24 @@ Summary(es.UTF-8):	Uno leitor USENET para el GNOME
 Summary(pl.UTF-8):	Czytnik USENET dla GNOME
 Summary(pt_BR.UTF-8):	Um leitor USENET para o GNOME
 Name:		pan
-Version:	0.133
-Release:	4
+Version:	0.135
+Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/News
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
-# Source0-md5:	ca165da8557605d89d327cff78891b89
+# Source0-md5:	0dc527d4abd663eaebcf39bf4ad0116e
 Patch0:		%{name}-desktop.patch
-Patch1:		gcc44.patch
+Patch1:		glib.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gmime22-devel >= 2.2.0
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gmime-devel >= 2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	glib2-devel >= 2.32.0
 %{?with_gtkspell:BuildRequires:	gtkspell-devel >= 2.0.7}
-BuildRequires:	intltool >= 0.23
-BuildRequires:	pcre-devel >= 5.0
+BuildRequires:	intltool >= 0.35.5
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 # sr@Latn vs. sr@latin
@@ -62,6 +64,7 @@ mv -f po/sr@{Latn,latin}.po
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--with%{!?with_gtkspell:out}-gtkspell
 
 %{__make}
