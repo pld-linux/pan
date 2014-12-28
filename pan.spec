@@ -21,7 +21,7 @@ Patch1:		glib.patch
 URL:		http://pan.rebelbase.com/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gmime-devel >= 2.4.0
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	glib2-devel >= 2.32.0
